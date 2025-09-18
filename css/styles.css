@@ -1,0 +1,46 @@
+body {
+  font-family: 'Sarabun', sans-serif;
+  background-color: #f7f4f2; /* brown-50 */
+  color: #5c4128; /* brown-700 */
+}
+
+.text-brown-700 {
+  color: #5c4128; /* brown-700 */
+}
+
+.text-brown-600 {
+  color: #7a5736; /* brown-600 */
+}
+
+.btn-brown-500 {
+  background-color: #976d44; /* brown-500 */
+  color: white;
+  border: none;
+}
+
+.btn-brown-500:hover {
+  background-color: #7a5736; /* brown-600 */
+}
+
+.btn-brown-400 {
+  background-color: #ad8b6b; /* brown-400 */
+  color: white;
+  border: none;
+}
+
+.btn-brown-400:hover {
+  background-color: #976d44; /* brown-500 */
+}
+
+.form-control {
+  border-color: #d8c8b9; /* brown-200 */
+}
+
+.form-control:focus {
+  border-color: #976d44; /* brown-500 */
+  box-shadow: 0 0 0 0.25rem rgba(151, 109, 68, 0.25); /* brown-500 with opacity */
+}
+
+.card {
+  border-color: #d8c8b9; /* brown-200 */
+}
