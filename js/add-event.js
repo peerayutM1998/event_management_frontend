@@ -56,6 +56,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     const registration_end_time = document.getElementById('registration_end_time').value;
     const location = document.getElementById('location').value;
     const max_participants = document.getElementById('max_participants').value;
+    const start = new Date(`${event_date}T${event_start_time}:00`);
+const end   = new Date(`${event_date}T${event_end_time}:00`);
+const regStart = new Date(`${registration_start_date}T${registration_start_time}:00`);
+const regEnd   = new Date(`${registration_end_date}T${registration_end_time}:00`);
+
+if (start >= end) {
+  Toastify({ text: 'เวลาเริ่มต้องน้อยกว่าเวลาสิ้นสุด', backgroundColor: '#dc3545' }).showToast();
+  return;
+}
+if (regStart >= regEnd) {
+  Toastify({ text: 'ช่วงลงทะเบียนไม่ถูกต้อง', backgroundColor: '#dc3545' }).showToast();
+  return;
+}
+// (ทางเลือก) ไม่บังคับ แต่ควรแจ้งเตือน: regEnd ควร <= event_start
+if (regEnd > start) {
+  Toastify({ text: 'วันที่สิ้นสุดลงทะเบียนควรก่อนเวลาเริ่มงาน', backgroundColor: '#ffc107' }).showToast();
+}
 
     try {
       const response = await fetch('http://localhost:8000/events/', {

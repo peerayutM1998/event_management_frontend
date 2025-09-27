@@ -12,30 +12,36 @@
 <body>
   <nav class="navbar navbar-expand-lg" style="background-color: #5c4128;">
     <div class="container">
-      <a class="navbar-brand text-white" href="index.html">ระบบจัดการกิจกรรม</a>
+      <a class="navbar-brand text-white" href="index.html">
+        <img width="100" src="img/LOGO.png" alt=""> ระบบจัดการกิจกรรม
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-
-      </div>
+      <div class="collapse navbar-collapse" id="navbarNav"></div>
     </div>
   </nav>
+
   <div class="container mt-4">
     <div class="row">
       <div class="col-md-8">
         <div class="card shadow-sm">
           <div class="card-body">
-            <h1 class="card-title text-brown-700" id="activityName"></h1>
+            <div class="d-flex justify-content-between align-items-start">
+              <h1 class="card-title text-brown-700" id="activityName"></h1>
+              <span id="statusBadge" class="badge bg-secondary" style="display:none"></span>
+            </div>
             <p class="card-text" id="activityDescription"></p>
             <p class="card-text text-brown-600" id="activityDate"></p>
             <p class="card-text text-brown-600" id="activityTime"></p>
             <p class="card-text text-brown-600" id="activityLocation"></p>
             <p class="card-text text-brown-600" id="activityMaxParticipants"></p>
+            <p class="card-text text-brown-600" id="activityRegWindow"></p>
             <button id="registerBtn" class="btn btn-brown-500 mt-3">ลงทะเบียน</button>
           </div>
         </div>
       </div>
+
       <div class="col-md-4">
         <div class="card shadow-sm">
           <div class="card-body">
@@ -47,8 +53,10 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <script src="js/auth.js"></script>

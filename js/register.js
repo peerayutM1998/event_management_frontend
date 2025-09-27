@@ -53,12 +53,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const student_id = document.getElementById('student_id').value;
     const password = document.getElementById('password').value;
 
+    // js/register.js (เฉพาะส่วน submit)
     try {
       const response = await fetch('http://localhost:8000/auths/register', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           username,
           full_name,
@@ -71,24 +70,15 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.detail || 'การสมัครสมาชิกล้มเหลว');
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.detail || `การสมัครสมาชิกล้มเหลว (HTTP ${response.status})`);
       }
 
-      Toastify({
-        text: 'สมัครสมาชิกสำเร็จ กรุณาเข้าสู่ระบบ',
-        backgroundColor: '#976d44',
-        position: 'top-right',
-      }).showToast();
-      setTimeout(() => {
-        window.location.href = 'index.html';
-      }, 2000);
+      Toastify({ text: 'สมัครสมาชิกสำเร็จ กรุณาเข้าสู่ระบบ', backgroundColor: '#976d44', position: 'top-right' }).showToast();
+      setTimeout(() => { window.location.href = 'index.html'; }, 2000);
     } catch (err) {
-      Toastify({
-        text: err.message,
-        backgroundColor: '#dc3545',
-        position: 'top-right',
-      }).showToast();
+      Toastify({ text: err.message, backgroundColor: '#dc3545', position: 'top-right' }).showToast();
     }
+
   });
 });
